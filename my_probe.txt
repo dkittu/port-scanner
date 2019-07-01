@@ -1,0 +1,6 @@
+\* OK Dovecot ready.\r\n|Dovecot imapd
+^HTTP/1\.1 \d\d\d (?:[^\r\n]*\r\n(?!\r\n))*?X-Powered-By: Express\r\n|Node.js Express framework
+^220---------- Welcome to Pure-FTPd [privsep] [TLS] ----------\r\n.*|Pure-FTPd
+\+OK Dovecot ready.\r\n|Dovecot pop3d
+\* OK \[CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE NAMESPACE LITERAL\+ STARTTLS AUTH=PLAIN AUTH=LOGIN\] Dovecot ready.\r\n|Dovecot imapd
+ESMTP Exim 4\.92|Exim smtpd 4.92
