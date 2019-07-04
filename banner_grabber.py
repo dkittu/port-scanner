@@ -1,3 +1,5 @@
+#THIS GRABS THE SERVICE BANNERS
+
 import socket
 import http_grabber
 import database_check
@@ -21,13 +23,13 @@ def all_grabber(ip, port):
 
     banner1 = non_http(ip, port)
     if banner1 :
-        if len(banner1) < 80:  # DURING HTTP BANNER IS NONETYPE
+        if len(banner1) < 80:                    #SOME FTP SERVICES GIVE WELCOME MESSAGE RATHER THAN SERVICE BEING USED
             return (banner1)
-        else:
+        else:                                    # DURING HTTP BANNER IS NONETYPE
            ans= database_check.db_check(banner1)
            return (ans)# use file handling
     else:
-        x = http_grabber.httpgrabber(ip, port)
+        x = http_grabber.httpgrabber(ip, port)  #IF THE PORT HAS HTTP OR HTTPS
         return (x)
 
 

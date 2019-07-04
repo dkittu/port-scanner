@@ -44,6 +44,7 @@ def portscan(port):
     finally:
         s.close()
 
+#THREADING
 
 def scanner_worker():
     while True:
@@ -68,6 +69,7 @@ print(f'\n\nSCAN COMPLETED IN {total} sec')
 
 service_set=set(service_list)
 
+#REMOVING DUPLICATE SERVICES
 
 print('\n\nLINKS TO EXPLOITS:', end='\n\n')
 aux_list = []
@@ -79,8 +81,8 @@ for l in service_set:
         final = reqq + ' vulnerability'
         aux_list.append(final)
 
-# print(service_set)
-# print(aux_list)
+#GOOGLE SEARCH
+
 for query, original in zip(aux_list, service_list):
     print(original)
     for _ in range(len(original)):

@@ -9,7 +9,7 @@ def httpgrabber(host, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
     s.settimeout(3)
-    http_get = "GET / HTTP/1.0\r\n\r\n"  # update
+    http_get = "GET / HTTP/1.0\r\n\r\n"
 
     req = bytes(http_get, 'utf-8')
     data = ''
@@ -18,11 +18,11 @@ def httpgrabber(host, port):
         s.sendall(req)
         data = s.recvfrom(1024)
         data = data[0]
-        if len(data)==0:
+        if len(data)==0:                                 #IF SSL IS ENABLED CALLING SSL WRAPPER
             data=ssl_wraper.ssl_grabber(host,port)
 
 
-        xx = codecs.decode(data, 'raw_unicode_escape')
+        xx = codecs.decode(data, 'raw_unicode_escape')   #TO CONVERT BYTES TO STR WITH ESCAPE SEQUENCES
         #print(data)
         da = data.decode()
 
@@ -31,7 +31,7 @@ def httpgrabber(host, port):
 
             if re.search('Server: ', da, re.IGNORECASE):
                 #print(da)
-                ans=da #
+                ans=da
                 flag = 1
                 break
             else:
@@ -53,5 +53,3 @@ def httpgrabber(host, port):
     finally:
         s.close()
 
-# xx=httpgrabber("136.243.69.14", 995)
-# print(xx)
