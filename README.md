@@ -9,4 +9,4 @@ Enter the website to be scanned : (ip or domain of webiste)
 give starting port : (port number from where you want to start scanning)
 give ending port:(ending port number)
 ```
-
+![Screenshot](scanner_example.png)
