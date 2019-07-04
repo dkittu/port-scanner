@@ -2,6 +2,7 @@ import socket
 import re
 import database_check
 import codecs
+import ssl_wraper
 
 
 def httpgrabber(host, port):
@@ -17,6 +18,9 @@ def httpgrabber(host, port):
         s.sendall(req)
         data = s.recvfrom(1024)
         data = data[0]
+        if len(data)==0:
+            data=ssl_wraper.ssl_grabber(host,port)
+
 
         xx = codecs.decode(data, 'raw_unicode_escape')
         #print(data)
@@ -49,3 +53,5 @@ def httpgrabber(host, port):
     finally:
         s.close()
 
+# xx=httpgrabber("136.243.69.14", 995)
+# print(xx)

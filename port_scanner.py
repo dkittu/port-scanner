@@ -66,9 +66,12 @@ end = time.time()
 total = end - start
 print(f'\n\nSCAN COMPLETED IN {total} sec')
 
+service_set=set(service_list)
+
+
 print('\n\nLINKS TO EXPLOITS:', end='\n\n')
 aux_list = []
-for l in service_list:
+for l in service_set:
     if l == None or l == '?':
         pass
     else:
@@ -76,6 +79,8 @@ for l in service_list:
         final = reqq + ' vulnerability'
         aux_list.append(final)
 
+# print(service_set)
+# print(aux_list)
 for query, original in zip(aux_list, service_list):
     print(original)
     for _ in range(len(original)):
